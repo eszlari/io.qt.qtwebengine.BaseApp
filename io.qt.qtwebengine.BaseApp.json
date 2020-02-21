@@ -99,7 +99,8 @@
                 }
             ],
             "build-commands": [
-                "sed -i 's@PATHS \"${CMAKE_CURRENT_LIST_DIR}/..\" NO_DEFAULT_PATH@PATHS \"${CMAKE_CURRENT_LIST_DIR}/..\" \"/usr/lib/${CMAKE_CXX_LIBRARY_ARCHITECTURE}/cmake/\" NO_DEFAULT_PATH@' /app/lib/*/cmake/*/*Config.cmake",
+                "mv /app/lib/*/cmake /app/lib/cmake",
+                "sed -i 's@PATHS \"${CMAKE_CURRENT_LIST_DIR}/..\" NO_DEFAULT_PATH@PATHS \"${CMAKE_CURRENT_LIST_DIR}/..\" \"/usr/lib/${CMAKE_CXX_LIBRARY_ARCHITECTURE}/cmake/\" NO_DEFAULT_PATH@' /app/lib/cmake/*/*Config.cmake",
                 "mv /app/lib/libexec/QtWebEngineProcess /app/bin/QtWebEngineProcess",
 
                 "mkdir -p ${DESTDIR}/app/share/appdata",
